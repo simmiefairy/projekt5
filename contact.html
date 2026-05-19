@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══ NAVIGATION ══════════════════════════════════ -->
+  <header class="nav" id="siteNav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="index.html">
+        <img src="img/logo.png" alt="Grocott Fysioterapi" class="nav__logo-img" />
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="index.html"              class="nav__link">Forside</a>
+        <a href="index.html#behandlinger" class="nav__link">Behandlinger</a>
+        <a href="index.html#priser"       class="nav__link">Priser</a>
+        <a href="about.html"                 class="nav__link">Om mig</a>
+        <a href="contact.html"            class="nav__link nav__link--active">Kontakt</a>
+      </nav>
+      <div class="nav__actions">
+        <a href="https://dk.trustpilot.com/review/grocottfys.dk" target="_blank" rel="noopener" class="btn-review">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Anmeld os
+        </a>
+        <a href="booking.html" class="btn-book-nav">Book tid</a>
+      </div>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Åbn menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ══ PAGE HERO ════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero__eyebrow">Vi er her for dig</div>
+      <h1 class="page-hero__title">Kontakt os</h1>
+      <p class="page-hero__sub">Send en besked, ring direkte eller book en tid online. Vi svarer hurtigst muligt.</p>
+    </div>
+  </section>
+
+  <!-- ══ KONTAKT-LAYOUT ═══════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Kontaktformular -->
+        <div class="contact-form-card">
+          <h2>Send en besked</h2>
+          <p class="contact-form-subtitle">Har du spørgsmål om behandlinger, priser eller tider? Skriv til os herunder.</p>
+
+          <div class="form-grid" id="contactForm">
+            <div class="form-group">
+              <label class="form-label" for="cName">Navn *</label>
+              <input class="form-input" type="text" id="cName" placeholder="Dit fulde navn" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cPhone">Telefon</label>
+              <input class="form-input" type="tel" id="cPhone" placeholder="Fx 60 12 34 56" />
+            </div>
+            <div class="form-group form-group--full">
+              <label class="form-label" for="cEmail">E-mail *</label>
+              <input class="form-input" type="email" id="cEmail" placeholder="din@email.dk" />
+            </div>
+            <div class="form-group form-group--full">
+              <label class="form-label" for="cSubject">Emne</label>
+              <input class="form-input" type="text" id="cSubject" placeholder="Fx spørgsmål om rygsmerter" />
+            </div>
+            <div class="form-group form-group--full">
+              <label class="form-label" for="cMsg">Besked *</label>
+              <textarea class="form-input" id="cMsg" placeholder="Beskriv hvad du ønsker hjælp til…"></textarea>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+            <button class="btn-primary" id="sendBtn" onclick="sendMessage()">Send besked</button>
+            <span id="formFeedback" style="font-size:13px;color:var(--text-soft);display:none"></span>
+          </div>
+
+          <!-- Succes-besked (skjult til start) -->
+          <div id="formSuccess" style="display:none; margin-top:20px; background:var(--blue-xlight); border:1px solid var(--blue-light); border-radius:var(--radius); padding:16px;">
+            <strong style="color:var(--blue-dark);">✓ Tak for din besked!</strong>
+            <p style="font-size:13px;color:var(--text-mid);margin-top:4px;">Vi vender tilbage hurtigst muligt – typisk inden for 24 timer på hverdage.</p>
+          </div>
+        </div>
+
+        <!-- Sidebar med info -->
+        <div class="contact-sidebar">
+
+          <!-- Direkte kontakt -->
+          <div class="info-card">
+            <h3 class="info-card__title">Direkte kontakt</h3>
+            <div class="info-card__row">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/></svg>
+              <div><div style="font-size:11px;color:var(--text-soft);margin-bottom:1px">Telefon</div><a href="tel:60866770">60 86 67 70</a></div>
+            </div>
+            <div class="info-card__row">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <div><div style="font-size:11px;color:var(--text-soft);margin-bottom:1px">E-mail</div><a href="mailto:nicolai@grocottfys.dk">nicolai@grocottfys.dk</a></div>
+            </div>
+            <div class="info-card__row">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <div>
+                <div style="font-size:11px;color:var(--text-soft);margin-bottom:1px">Adresse</div>
+                Langeskov Centret 1, butik 3<br>5550 Langeskov
+              </div>
+            </div>
+          </div>
+
+          <!-- Åbningstider -->
+          <div class="info-card">
+            <h3 class="info-card__title">Åbningstider</h3>
+            <table class="hours-table">
+              <tr><td>Mandag</td><td>08:00–14:00</td></tr>
+              <tr><td>Tirsdag</td><td>09:00–21:00</td></tr>
+              <tr><td>Onsdag</td><td>08:00–15:00</td></tr>
+              <tr><td>Torsdag</td><td>10:00–21:00</td></tr>
+              <tr><td>Fredag</td><td>07:15–15:00</td></tr>
+              <tr><td>Weekend</td><td>Se Facebook</td></tr>
+            </table>
+          </div>
+
+          <!-- Kort-placeholder -->
+          <div class="map-placeholder">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span>Langeskov Centret 1, 5550 Langeskov</span>
+            <a href="https://maps.google.com/?q=Langeskov+Centret+1,+5550+Langeskov" target="_blank" rel="noopener" style="font-size:12px;color:var(--blue)">Åbn i Google Maps →</a>
+          </div>
+
+          <!-- Book direkte -->
+          <div class="info-card" style="background:var(--blue-dark);border-color:var(--blue-dark);">
+            <h3 class="info-card__title" style="color:#fff;">Klar til at booke?</h3>
+            <p style="font-size:13px;color:rgba(255,255,255,.7);margin-bottom:16px;">Book direkte online – ingen lægehenvisning nødvendig.</p>
+            <a href="booking.html" class="btn-primary" style="width:100%;text-align:center;display:block;">Book tid online</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ═══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <img src="logo.png" alt="Grocott Fysioterapi" class="footer__logo" />
+          <p class="footer__tagline">Fysioterapi med høj faglighed på Østfyn</p>
+          <a href="booking.html" class="btn-primary" style="margin-top:18px;display:inline-block">Book tid online</a>
+        </div>
+        <div>
+          <div class="footer__col-title">Åbningstider</div>
+          <div class="footer__hours-row"><span>Mandag</span><strong>08:00–14:00</strong></div>
+          <div class="footer__hours-row"><span>Tirsdag</span><strong>09:00–21:00</strong></div>
+          <div class="footer__hours-row"><span>Onsdag</span><strong>08:00–15:00</strong></div>
+          <div class="footer__hours-row"><span>Torsdag</span><strong>10:00–21:00</strong></div>
+          <div class="footer__hours-row"><span>Fredag</span><strong>07:15–15:00</strong></div>
+          <div class="footer__hours-row"><span>Weekend</span><strong>Se Facebook</strong></div>
+        </div>
+        <div>
+          <div class="footer__col-title">Links</div>
+          <a class="footer__link" href="om.html">Om Nicolai Grocott</a>
+          <a class="footer__link" href="kontakt.html">Kontakt</a>
+          <a class="footer__link" href="booking.html">Book tid</a>
+          <a class="footer__link" href="tel:60866770">60 86 67 70</a>
+          <a class="footer__link" href="mailto:nicolai@grocottfys.dk">nicolai@grocottfys.dk</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Grocott Fysioterapi · CVR: 40229299</span>
+        <a href="#" class="footer__bottom-link">Cookiepolitik</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
