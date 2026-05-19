@@ -1,12 +1,180 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grocott Fysioterapi</title>  
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grocott Fysioterapi – Forside</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+<body>
 
+  <header class="nav" id="siteNav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="index.html"><img src="img/logo.png" alt="Grocott Fysioterapi" class="nav__logo-img" /></a>
+      <nav class="nav__links" id="navLinks">
+        <a href="index.html" class="nav__link nav__link--active">Forside</a>
+        <a href="index.html#behandlinger" class="nav__link">Behandlinger</a>
+        <a href="index.html#priser" class="nav__link">Priser</a>
+        <a href="om.html" class="nav__link">Om mig</a>
+        <a href="kontakt.html" class="nav__link">Kontakt</a>
+      </nav>
+      <div class="nav__actions">
+        <a href="https://dk.trustpilot.com/review/grocottfys.dk" target="_blank" rel="noopener" class="btn-review">
+          <!-- Trustpilot stjerne-ikon -->
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Anmeld os
+        </a>
+        <a href="booking.html" class="btn-book-nav">Book tid</a>
+      </div>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <div class="hero__eyebrow">Fysioterapi · Langeskov, Østfyn</div>
+        <h1 class="hero__title">Kroppen i balance –<br><em>færre konsultationer</em></h1>
+        <p class="hero__sub">Tilpassede forløb med høj faglighed. 11 år som fysioterapeut med 360° uddannelse i hele kroppen – en tilgang der behandler roden, ikke kun symptomerne.</p>
+        <div class="hero__actions">
+          <a href="booking.html" class="btn-primary">Book tid online</a>
+          <a href="tel:60866770" class="btn-ghost-outline">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/></svg>
+            Ring: 60 86 67 70
+          </a>
+        </div>
+        <div class="hero__badges">
+          <div class="badge"><span class="badge__num">11</span><span class="badge__lbl">års erfaring</span></div>
+          <div class="badge__sep"></div>
+          <div class="badge"><span class="badge__num">19</span><span class="badge__lbl">kurser</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="usp-strip">
+    <div class="container">
+      <div class="usp-strip__grid">
+        <div class="usp-item"><div class="usp-item__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><div><div class="usp-item__title">Færre konsultationer</div><div class="usp-item__desc">Høj faglighed giver hurtigere resultater</div></div></div>
+        <div class="usp-item"><div class="usp-item__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v4l3 3"/></svg></div><div><div class="usp-item__title">Fleksible tider</div><div class="usp-item__desc">Tidlige morgener og sene aftener</div></div></div>
+        <div class="usp-item"><div class="usp-item__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div><div><div class="usp-item__title">Ingen lægehenvisning</div><div class="usp-item__desc">Book direkte – udenfor overenskomst</div></div></div>
+        <div class="usp-item"><div class="usp-item__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div><div><div class="usp-item__title">Hele mennesket</div><div class="usp-item__desc">Kroppen behandles som en helhed</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="behandlinger">
+    <div class="container">
+      <div class="section__head">
+        <div class="eyebrow">Behandlinger</div>
+        <h2 class="section__title">Hvad kan jeg hjælpe med?</h2>
+        <p class="section__sub">Fra elite-sportsudøvere til aktive børn, unge og ældre – skræddersyede forløb til alle.</p>
+      </div>
+      <div class="treatments-grid">
+        <div class="treat-card"><div class="treat-card__icon treat-card__icon--1"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v4M12 16h.01"/></svg></div><h3 class="treat-card__name">Hovedpine</h3><p class="treat-card__desc">Spændingshovedpine, migræne og cervikal betinget hovedpine.</p></div>
+        <div class="treat-card"><div class="treat-card__icon treat-card__icon--2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/></svg></div><h3 class="treat-card__name">Nakke & skulder</h3><p class="treat-card__desc">Smerter, overbelastning og stivhed i nakke og skuldre.</p></div>
+        <div class="treat-card"><div class="treat-card__icon treat-card__icon--3"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3 class="treat-card__name">Rygsmerter</h3><p class="treat-card__desc">Lænderyg, diskusprolaps og kroniske rygsmerter.</p></div>
+        <div class="treat-card"><div class="treat-card__icon treat-card__icon--4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><h3 class="treat-card__name">Kæbegener</h3><p class="treat-card__desc">TMJ-dysfunction, klik og bevægebegrænsning i kæben.</p></div>
+        <div class="treat-card"><div class="treat-card__icon treat-card__icon--5"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6-10l6-3m6 3l-6 3m6-3v10l-6 3"/></svg></div><h3 class="treat-card__name">Knæ & hofter</h3><p class="treat-card__desc">Løbeskader, slidgigt og hofteimpingement.</p></div>
+        <div class="treat-card"><div class="treat-card__icon treat-card__icon--6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg></div><h3 class="treat-card__name">Fod & ankel</h3><p class="treat-card__desc">Hælspore, plantar fasciitis og ankelinstabilitet.</p></div>
+      </div>
+      <div class="section__cta"><a href="booking.html" class="btn-primary">Book en tid</a></div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="priser">
+    <div class="container">
+      <div class="section__head">
+        <div class="eyebrow">Priser</div>
+        <h2 class="section__title">Gennemsigtige priser</h2>
+        <p class="section__sub">Alle priser er inkl. moms. Ingen lægehenvisning nødvendig.</p>
+      </div>
+      <div class="prices-wrap">
+        <div class="prices-table">
+          <div class="prices-table__head">Behandlinger</div>
+          <div class="price-row"><span>15 min.</span><span class="price-row__val">225 kr.</span></div>
+          <div class="price-row"><span>30 min.</span><span class="price-row__val">400 kr.</span></div>
+          <div class="price-row"><span>45 min.</span><span class="price-row__val">500 kr.</span></div>
+          <div class="price-row"><span>60 min.</span><span class="price-row__val">650 kr.</span></div>
+          <div class="price-row"><span>90 min.</span><span class="price-row__val">850 kr.</span></div>
+          <div class="price-row"><span>120 min.</span><span class="price-row__val">1.100 kr.</span></div>
+          <div class="price-row price-row--accent"><span>Akuttillæg</span><span class="price-row__val">+300 kr.</span></div>
+          <div class="price-row"><span>Holdtræning pr. gang</span><span class="price-row__val">110 kr.</span></div>
+        </div>
+        <div class="klippekort">
+          <div class="klippekort__label">Klippekort – spar penge</div>
+          <div class="klippekort__grid">
+            <div class="kk-card"><div class="kk-card__top">5 × 30 min.</div><div class="kk-card__price">1.575 kr.</div><div class="kk-card__save">Spar 300 kr.</div></div>
+            <div class="kk-card"><div class="kk-card__top">10 × 30 min.</div><div class="kk-card__price">3.000 kr.</div><div class="kk-card__save">Spar 750 kr.</div></div>
+            <div class="kk-card"><div class="kk-card__top">5 × 45 min.</div><div class="kk-card__price">2.075 kr.</div><div class="kk-card__save">Spar 300 kr.</div></div>
+            <div class="kk-card"><div class="kk-card__top">10 × 45 min.</div><div class="kk-card__price">4.000 kr.</div><div class="kk-card__save">Spar 750 kr.</div></div>
+            <div class="kk-card kk-card--wide"><div class="kk-card__top">10 × holdtræning</div><div class="kk-card__price">900 kr.</div><div class="kk-card__save">Spar 200 kr.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="insurance-strip">
+        <div class="insurance-strip__label">Samarbejder med</div>
+        <div class="insurance-strip__logos"><span>Sygesikring Danmark</span><span>Tryg</span><span>PFA</span><span>Falck Healthcare</span><span>Danica Pension</span><span>Alm. Brand</span><span>Nordic Netcare</span><span>AP Pension</span></div>
+      </div>
+      <div class="section__cta"><a href="booking.html" class="btn-primary">Book din tid nu</a></div>
+    </div>
+  </section>
+
+  <section class="section" id="anmeldelser">
+    <div class="container">
+      <div class="section__head">
+        <div class="eyebrow">Anmeldelser</div>
+        <h2 class="section__title">Hvad siger klienterne?</h2>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card"><div class="review-card__stars">★★★★★</div><p class="review-card__text">"Allerede efter én behandling mærkede jeg en tydelig forskel og nu har jeg ikke længere daglig hovedpine."</p><div class="review-card__author"><div class="review-card__avatar">JA</div><div><div class="review-card__name">Jacob Asmussen</div><div class="review-card__label">Svært ramt af hovedpine</div></div></div></div>
+        <div class="review-card review-card--featured"><div class="review-card__stars">★★★★★</div><p class="review-card__text">"Nicolai har en anden tilgang end jeg har prøvet andre steder. En stor AHA-oplevelse – hvor meget jeg selv kan gøre for at afhjælpe mine smerter."</p><div class="review-card__author"><div class="review-card__avatar">HK</div><div><div class="review-card__name">Heidi Malin Kristens</div><div class="review-card__label">Nakke og spændingshovedpine</div></div></div></div>
+        <div class="review-card"><div class="review-card__stars">★★★★★</div><p class="review-card__text">"Jeg har altid følt mig mødt, hørt og forstået. Vigtigst af alt har jeg opnået en større viden om mine muligheder."</p><div class="review-card__author"><div class="review-card__avatar">JL</div><div><div class="review-card__name">June Høybye Lindholm</div><div class="review-card__label">Frossen skulder og hofte dysplasi</div></div></div></div>
+      </div>
+      <div class="section__cta">
+        <a href="https://dk.trustpilot.com/review/grocottfys.dk" target="_blank" class="btn-review btn-review--large">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Skriv en anmeldelse på Trustpilot
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="logo.png" alt="Grocott Fysioterapi" class="footer__logo" />
+          <p class="footer__tagline">Fysioterapi med høj faglighed på Østfyn</p>
+          <a href="booking.html" class="btn-primary" style="margin-top:18px;display:inline-block">Book tid online</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Åbningstider</div>
+          <div class="footer__hours-row"><span>Mandag</span><strong>08:00–14:00</strong></div>
+          <div class="footer__hours-row"><span>Tirsdag</span><strong>09:00–21:00</strong></div>
+          <div class="footer__hours-row"><span>Onsdag</span><strong>08:00–15:00</strong></div>
+          <div class="footer__hours-row"><span>Torsdag</span><strong>10:00–21:00</strong></div>
+          <div class="footer__hours-row"><span>Fredag</span><strong>07:15–15:00</strong></div>
+          <div class="footer__hours-row"><span>Weekend</span><strong>Se Facebook</strong></div>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Links</div>
+          <a class="footer__link" href="om.html">Om Nicolai Grocott</a>
+          <a class="footer__link" href="kontakt.html">Kontakt</a>
+          <a class="footer__link" href="booking.html">Book tid</a>
+          <a class="footer__link" href="tel:60866770">60 86 67 70</a>
+          <a class="footer__link" href="mailto:nicolai@grocottfys.dk">nicolai@grocottfys.dk</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Grocott Fysioterapi · CVR: 40229299</span>
+        <a href="#" class="footer__bottom-link">Cookiepolitik</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
