@@ -15,13 +15,13 @@
       <nav class="nav__links" id="navLinks">
         <a href="index.html" class="nav__link nav__link--active">Forside</a>
         <a href="index.html#behandlinger" class="nav__link">Behandlinger</a>
-        <a href="index.html#priser" class="nav__link">Priser</a>
         <a href="about.html" class="nav__link">Om mig</a>
         <a href="contact.html" class="nav__link">Kontakt</a>
+        <!-- Book tid i mobilmenuen — skjult på desktop via CSS -->
+        <a href="booking.html" class="btn-book-nav nav__book-mobile">Book tid</a>
       </nav>
       <div class="nav__actions">
         <a href="https://dk.trustpilot.com/review/grocottfys.dk" target="_blank" rel="noopener" class="btn-review">
-          <!-- Trustpilot stjerne-ikon -->
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           Anmeld os
         </a>
@@ -71,69 +71,57 @@
         <h2 class="section__title">Hvad kan jeg hjælpe med?</h2>
         <p class="section__sub">Fra elite-sportsudøvere til aktive børn, unge og ældre – skræddersyede forløb til alle.</p>
       </div>
+      <!-- Klassen er "treat" — det er hvad app.js leder efter med querySelectorAll('.treat') -->
       <div class="treatments-grid">
-        <div class="treat-card"><div class="treat-card__icon treat-card__icon--1"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v4M12 16h.01"/></svg></div><h3 class="treat-card__name">Hovedpine</h3><p class="treat-card__desc">Spændingshovedpine, migræne og cervikal betinget hovedpine.</p></div>
-        <div class="treat-card"><div class="treat-card__icon treat-card__icon--2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/></svg></div><h3 class="treat-card__name">Nakke & skulder</h3><p class="treat-card__desc">Smerter, overbelastning og stivhed i nakke og skuldre.</p></div>
-        <div class="treat-card"><div class="treat-card__icon treat-card__icon--3"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3 class="treat-card__name">Rygsmerter</h3><p class="treat-card__desc">Lænderyg, diskusprolaps og kroniske rygsmerter.</p></div>
-        <div class="treat-card"><div class="treat-card__icon treat-card__icon--4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><h3 class="treat-card__name">Kæbegener</h3><p class="treat-card__desc">TMJ-dysfunction, klik og bevægebegrænsning i kæben.</p></div>
-        <div class="treat-card"><div class="treat-card__icon treat-card__icon--5"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6-10l6-3m6 3l-6 3m6-3v10l-6 3"/></svg></div><h3 class="treat-card__name">Knæ & hofter</h3><p class="treat-card__desc">Løbeskader, slidgigt og hofteimpingement.</p></div>
-        <div class="treat-card"><div class="treat-card__icon treat-card__icon--6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg></div><h3 class="treat-card__name">Fod & ankel</h3><p class="treat-card__desc">Hælspore, plantar fasciitis og ankelinstabilitet.</p></div>
+        <div class="treat"><div class="treat__icon" data-c="1"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v4M12 16h.01"/></svg></div><h3 class="treat__name">Hovedpine</h3><p class="treat__desc">Spændingshovedpine, migræne og cervikal betinget hovedpine.</p></div>
+        <div class="treat"><div class="treat__icon" data-c="2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/></svg></div><h3 class="treat__name">Nakke & skulder</h3><p class="treat__desc">Smerter, overbelastning og stivhed i nakke og skuldre.</p></div>
+        <div class="treat"><div class="treat__icon" data-c="3"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3 class="treat__name">Rygsmerter</h3><p class="treat__desc">Lænderyg, diskusprolaps og kroniske rygsmerter.</p></div>
+        <div class="treat"><div class="treat__icon" data-c="4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><h3 class="treat__name">Kæbegener</h3><p class="treat__desc">TMJ-dysfunction, klik og bevægebegrænsning i kæben.</p></div>
+        <div class="treat"><div class="treat__icon" data-c="5"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6-10l6-3m6 3l-6 3m6-3v10l-6 3"/></svg></div><h3 class="treat__name">Knæ & hofter</h3><p class="treat__desc">Løbeskader, slidgigt og hofteimpingement.</p></div>
+        <div class="treat"><div class="treat__icon" data-c="6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg></div><h3 class="treat__name">Fod & ankel</h3><p class="treat__desc">Hælspore, plantar fasciitis og ankelinstabilitet.</p></div>
       </div>
       <div class="section__cta"><a href="booking.html" class="btn-primary">Book en tid</a></div>
     </div>
   </section>
 
-  <section class="section section--alt" id="priser">
-    <div class="container">
-      <div class="section__head">
-        <div class="eyebrow">Priser</div>
-        <h2 class="section__title">Gennemsigtige priser</h2>
-        <p class="section__sub">Alle priser er inkl. moms. Ingen lægehenvisning nødvendig.</p>
+  <!-- Modal popup til behandlinger — app.js åbner den ved klik på .treat -->
+  <div class="modal" id="treatModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__box">
+      <div class="modal__header">
+        <h2 class="modal__title" id="modalTitle"></h2>
+        <button class="modal__close" id="modalClose" type="button" aria-label="Luk">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
       </div>
-      <div class="prices-wrap">
-        <div class="prices-table">
-          <div class="prices-table__head">Behandlinger</div>
-          <div class="price-row"><span>15 min.</span><span class="price-row__val">225 kr.</span></div>
-          <div class="price-row"><span>30 min.</span><span class="price-row__val">400 kr.</span></div>
-          <div class="price-row"><span>45 min.</span><span class="price-row__val">500 kr.</span></div>
-          <div class="price-row"><span>60 min.</span><span class="price-row__val">650 kr.</span></div>
-          <div class="price-row"><span>90 min.</span><span class="price-row__val">850 kr.</span></div>
-          <div class="price-row"><span>120 min.</span><span class="price-row__val">1.100 kr.</span></div>
-          <div class="price-row price-row--accent"><span>Akuttillæg</span><span class="price-row__val">+300 kr.</span></div>
-          <div class="price-row"><span>Holdtræning pr. gang</span><span class="price-row__val">110 kr.</span></div>
-        </div>
-        <div class="klippekort">
-          <div class="klippekort__label">Klippekort – spar penge</div>
-          <div class="klippekort__grid">
-            <div class="kk-card"><div class="kk-card__top">5 × 30 min.</div><div class="kk-card__price">1.575 kr.</div><div class="kk-card__save">Spar 300 kr.</div></div>
-            <div class="kk-card"><div class="kk-card__top">10 × 30 min.</div><div class="kk-card__price">3.000 kr.</div><div class="kk-card__save">Spar 750 kr.</div></div>
-            <div class="kk-card"><div class="kk-card__top">5 × 45 min.</div><div class="kk-card__price">2.075 kr.</div><div class="kk-card__save">Spar 300 kr.</div></div>
-            <div class="kk-card"><div class="kk-card__top">10 × 45 min.</div><div class="kk-card__price">4.000 kr.</div><div class="kk-card__save">Spar 750 kr.</div></div>
-            <div class="kk-card kk-card--wide"><div class="kk-card__top">10 × holdtræning</div><div class="kk-card__price">900 kr.</div><div class="kk-card__save">Spar 200 kr.</div></div>
-          </div>
-        </div>
+      <div class="modal__body"><div class="modal__content"></div></div>
+      <div class="modal__footer">
+        <a href="booking.html" class="btn-primary">Book en tid</a>
+        <button class="btn-ghost" id="modalClose2" type="button">Luk</button>
       </div>
-      <div class="insurance-strip">
-        <div class="insurance-strip__label">Samarbejder med</div>
-        <div class="insurance-strip__logos"><span>Sygesikring Danmark</span><span>Tryg</span><span>PFA</span><span>Falck Healthcare</span><span>Danica Pension</span><span>Alm. Brand</span><span>Nordic Netcare</span><span>AP Pension</span></div>
-      </div>
-      <div class="section__cta"><a href="booking.html" class="btn-primary">Book din tid nu</a></div>
     </div>
-  </section>
+  </div>
 
-  <section class="section" id="anmeldelser">
+
+  <!-- Karrusel — app.js leder efter id="carouselTrack" og id="reviewsCarousel" -->
+  <section class="section" id="reviewsCarousel">
     <div class="container">
       <div class="section__head">
         <div class="eyebrow">Anmeldelser</div>
         <h2 class="section__title">Hvad siger klienterne?</h2>
       </div>
-      <div class="reviews-grid">
-        <div class="review-card"><div class="review-card__stars">★★★★★</div><p class="review-card__text">"Allerede efter én behandling mærkede jeg en tydelig forskel og nu har jeg ikke længere daglig hovedpine."</p><div class="review-card__author"><div class="review-card__avatar">JA</div><div><div class="review-card__name">Jacob Asmussen</div><div class="review-card__label">Svært ramt af hovedpine</div></div></div></div>
-        <div class="review-card review-card--featured"><div class="review-card__stars">★★★★★</div><p class="review-card__text">"Nicolai har en anden tilgang end jeg har prøvet andre steder. En stor AHA-oplevelse – hvor meget jeg selv kan gøre for at afhjælpe mine smerter."</p><div class="review-card__author"><div class="review-card__avatar">HK</div><div><div class="review-card__name">Heidi Malin Kristens</div><div class="review-card__label">Nakke og spændingshovedpine</div></div></div></div>
-        <div class="review-card"><div class="review-card__stars">★★★★★</div><p class="review-card__text">"Jeg har altid følt mig mødt, hørt og forstået. Vigtigst af alt har jeg opnået en større viden om mine muligheder."</p><div class="review-card__author"><div class="review-card__avatar">JL</div><div><div class="review-card__name">June Høybye Lindholm</div><div class="review-card__label">Frossen skulder og hofte dysplasi</div></div></div></div>
+      <div class="carousel">
+        <button class="carousel__btn carousel__btn--prev" id="carouselPrev" type="button" aria-label="Forrige anmeldelse">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <!-- Anmeldelseskort indsættes her af app.js -->
+        <div class="reviews-grid" id="carouselTrack"></div>
+        <button class="carousel__btn carousel__btn--next" id="carouselNext" type="button" aria-label="Næste anmeldelse">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
       </div>
+      <div class="carousel__dots" id="carouselDots"></div>
       <div class="section__cta">
-        <a href="https://dk.trustpilot.com/review/grocottfys.dk" target="_blank" class="btn-review btn-review--large">
+        <a href="https://dk.trustpilot.com/review/grocottfys.dk" target="_blank" rel="noopener" class="btn-review btn-review--large">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           Skriv en anmeldelse på Trustpilot
         </a>
@@ -174,13 +162,8 @@
     </div>
   </footer>
 
-<script src="js/app.js"></script>
-<script src="js/booking.js"></script>
-<script src="js/components.js"></script>
-<script src="js/contact.js"></script>
-<script src="js/navigation.js"></script>
-<script src="js/carusel.js"></script>
+  <!-- Kun ét script-tag — app.js indeholder alt -->
+  <script src="app.js"></script>
 
 </body>
 </html>
-

@@ -122,7 +122,7 @@ body {
 }
 
 .nav__logo { flex-shrink: 0; line-height: 0; text-decoration: none; }
-.nav__logo-img { height: 38px; width: auto; display: block; }
+.nav__logo-img { height: 52px; width: auto; display: block; }
 
 .nav__links { display: flex; align-items: center; gap: 24px; margin-left: auto; }
 
@@ -416,16 +416,20 @@ textarea.form-input { resize: vertical; min-height: 100px; }
 .bview { display: none; }
 .bview--active { display: block; }
 
+/* Booking trin — skjul alle, vis kun det aktive */
+.view { display: none; }
+.view--active { display: block; }
+
 /* Service cards */
 .service-list { display: flex; flex-direction: column; gap: 9px; }
-.service-card { border: 1.5px solid var(--border); border-radius: var(--radius); padding: 13px 16px; cursor: pointer; display: flex; align-items: center; gap: 13px; transition: border-color .15s, background .15s, transform .12s; position: relative; }
-.service-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--blue); transform: scaleY(0); transition: transform .2s; border-radius: 2px 0 0 2px; }
-.service-card:hover { border-color: var(--blue-mid); background: var(--blue-xlight); transform: translateX(2px); }
-.service-card:hover::before, .service-card--selected::before { transform: scaleY(1); }
-.service-card--selected { border-color: var(--blue); background: var(--blue-xlight); }
+.service { border: 1.5px solid var(--border); border-radius: var(--radius); padding: 13px 16px; cursor: pointer; display: flex; align-items: center; gap: 13px; transition: border-color .15s, background .15s, transform .12s; position: relative; }
+.service::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--blue); transform: scaleY(0); transition: transform .2s; border-radius: 2px 0 0 2px; }
+.service:hover { border-color: var(--blue-mid); background: var(--blue-xlight); transform: translateX(2px); }
+.service:hover::before, .service--selected::before { transform: scaleY(1); }
+.service--selected { border-color: var(--blue); background: var(--blue-xlight); }
 
 .svc-check { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--border); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all .2s; }
-.service-card--selected .svc-check { background: var(--blue); border-color: var(--blue); }
+.service--selected .svc-check { background: var(--blue); border-color: var(--blue); }
 .svc-info { flex: 1; min-width: 0; }
 .svc-name { font-weight: 500; font-size: 14px; }
 .svc-desc { font-size: 12px; color: var(--text-soft); margin-top: 1px; }
@@ -548,6 +552,7 @@ textarea.form-input { resize: vertical; min-height: 100px; }
 @media (max-width: 640px) {
   .nav__links { display: none; }
   .nav__actions .btn-review { display: none; }
+  .nav__actions .btn-book-nav { display: none; }
   .hamburger { display: flex; }
   .nav__links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 16px 24px; gap: 16px; z-index: 199; }
   .booking-layout { grid-template-columns: 1fr; }
@@ -736,3 +741,97 @@ a.contact-info-item__val:hover { color: var(--blue-dark); text-decoration: under
 /* Btn-row hjælpeklasse */
 .btn-row { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
 .btn-row--center { justify-content: center; }
+
+
+/* ═══════════════════════════════════════════════════════════
+   TILFØJET: Modal, Karrusel og Nav mobilmenu
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── BEHANDLINGSKORT: hover og "Læs mere" hint ────────────── */
+.treat {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: box-shadow .2s, transform .2s, border-color .2s;
+  cursor: pointer;
+  position: relative;
+}
+.treat:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--blue-mid); }
+.treat__icon { width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+.treat__icon[data-c="1"] { background: #fff3e0; color: #e65100; }
+.treat__icon[data-c="2"] { background: var(--blue-xlight); color: var(--blue); }
+.treat__icon[data-c="3"] { background: #fde8e8; color: #c0392b; }
+.treat__icon[data-c="4"] { background: #e8f5fe; color: #0277bd; }
+.treat__icon[data-c="5"] { background: #f3e8fd; color: #7b3fc4; }
+.treat__icon[data-c="6"] { background: #e8fdf4; color: #1a7a5e; }
+.treat__name { font: 400 17px/1.3 'DM Serif Display', serif; margin-bottom: 7px; }
+.treat__desc { font-size: 13px; color: var(--text-mid); line-height: 1.6; }
+.treat__hint { font-size: 12px; font-weight: 500; color: var(--blue); margin-top: 12px; opacity: 0; transform: translateY(4px); transition: opacity .2s, transform .2s; }
+.treat:hover .treat__hint { opacity: 1; transform: translateY(0); }
+
+/* ── MODAL ────────────────────────────────────────────────── */
+.modal { display: none; position: fixed; inset: 0; z-index: 500; background: rgba(15,22,36,.55); backdrop-filter: blur(3px); align-items: center; justify-content: center; padding: 20px; }
+.modal--open { display: flex; }
+.modal-open { overflow: hidden; }
+.modal__box { background: #fff; border-radius: var(--radius-lg); box-shadow: 0 24px 64px rgba(15,22,36,.22); max-width: 600px; width: 100%; max-height: 90vh; display: flex; flex-direction: column; animation: slideUp .22s cubic-bezier(.34,1.56,.64,1) both; overflow: hidden; }
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.modal__header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px 18px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.modal__title { font: 400 22px/1.2 'DM Serif Display', serif; }
+.modal__close { width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--border); background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text-mid); transition: all var(--ease); flex-shrink: 0; }
+.modal__close:hover { background: var(--sand-dark); color: var(--text); }
+.modal__body { padding: 24px; overflow-y: auto; flex: 1; }
+.modal__short { font-size: 15px; color: var(--blue-mid); font-weight: 500; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.modal__content p { font-size: 14px; color: var(--text-mid); line-height: 1.75; margin-bottom: 14px; }
+.modal__content h4 { font: 400 16px/1.3 'DM Serif Display', serif; margin: 20px 0 10px; }
+.modal__content ul { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-bottom: 14px; }
+.modal__content ul li { display: flex; align-items: flex-start; gap: 9px; font-size: 14px; color: var(--text-mid); line-height: 1.5; }
+.modal__content ul li::before { content: ''; flex-shrink: 0; margin-top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--blue-mid); }
+.modal__footer { display: flex; gap: 10px; padding: 16px 24px; border-top: 1px solid var(--border); flex-shrink: 0; }
+
+/* ── KARRUSEL ─────────────────────────────────────────────── */
+.carousel { display: flex; align-items: center; gap: 16px; }
+.carousel__btn { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--border); background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text-mid); transition: all var(--ease); box-shadow: var(--shadow-sm); }
+.carousel__btn:hover { border-color: var(--blue-mid); background: var(--blue-xlight); color: var(--blue); }
+.carousel__dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
+.carousel__dot { width: 8px; height: 8px; border-radius: 50%; border: none; background: var(--border); cursor: pointer; padding: 0; transition: background var(--ease), transform var(--ease); }
+.carousel__dot--active { background: var(--blue); transform: scale(1.3); }
+.carousel__dot:hover { background: var(--blue-mid); }
+
+/* ── REVIEW-KORT (bruges af karrusel) ─────────────────────── */
+.review { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px; }
+.review--featured { border-color: var(--blue-mid); background: var(--blue-xlight); transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.review__stars { color: #f59e0b; font-size: 16px; margin-bottom: 14px; letter-spacing: 2px; }
+.review__text { font-size: 14px; color: var(--text-mid); line-height: 1.7; margin-bottom: 18px; font-style: italic; }
+.review__author { display: flex; align-items: center; gap: 10px; }
+.review__avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--blue-light); color: var(--blue-dark); font: 500 12px/1 'DM Sans', sans-serif; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.review--featured .review__avatar { background: var(--blue); color: #fff; }
+.review__name { font-size: 13px; font-weight: 500; }
+.review__label { font-size: 11px; color: var(--text-soft); }
+
+/* ── MOBILMENU ────────────────────────────────────────────── */
+/* Book tid i mobilmenuen — skjult på desktop */
+.nav__book-mobile { display: none; }
+
+/* Hamburger X-animation */
+.hamburger span { transition: transform .2s, opacity .2s; }
+.hamburger.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.is-active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 640px) {
+  /* Vis Book tid i hamburger-menuen */
+  .nav__book-mobile { display: inline-flex; width: 100%; justify-content: center; margin-top: 4px; }
+
+  /* Karrusel: ét kort ad gangen */
+  .reviews-grid { grid-template-columns: 1fr !important; }
+  .reviews-grid .review:not(.review--featured) { display: none; }
+
+  /* Modal: slide op fra bunden */
+  .modal { align-items: flex-end; padding: 0; }
+  .modal__box { max-height: 95vh; border-radius: var(--radius-lg) var(--radius-lg) 0 0; position: fixed; bottom: 0; left: 0; right: 0; max-width: 100%; animation: slideUpMobile .25s ease both; }
+  @keyframes slideUpMobile { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+  /* Karrusel-pile: skjul på mobil, brug swipe */
+  .carousel__btn { display: none; }
+}

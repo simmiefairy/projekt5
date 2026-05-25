@@ -3,77 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book tid</title>
+  <title>Book tid — Grocott Fysioterapi</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ══ NAVIGATION ══════════════════════════════════ -->
   <header class="nav" id="siteNav">
     <div class="nav__inner">
-      <a class="nav__logo" href="index.html">
-        <img src="img/logo.png" alt="Grocott Fysioterapi" class="nav__logo-img" />
-      </a>
+      <a class="nav__logo" href="index.html"><img src="img/logo.png" alt="Grocott Fysioterapi" class="nav__logo-img" /></a>
       <nav class="nav__links" id="navLinks">
-        <a href="index.html"              class="nav__link">Forside</a>
+        <a href="index.html" class="nav__link">Forside</a>
         <a href="index.html#behandlinger" class="nav__link">Behandlinger</a>
-        <a href="index.html#priser"       class="nav__link">Priser</a>
-        <a href="about.html"                 class="nav__link">Om mig</a>
-        <a href="contact.html"            class="nav__link">Kontakt</a>
+        <a href="index.html#priser" class="nav__link">Priser</a>
+        <a href="about.html" class="nav__link">Om mig</a>
+        <a href="contact.html" class="nav__link">Kontakt</a>
       </nav>
       <div class="nav__actions">
         <a href="https://dk.trustpilot.com/review/grocottfys.dk" target="_blank" rel="noopener" class="btn-review">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           Anmeld os
         </a>
-        <!-- Book tid-knappen er aktiv side — fremhævet men ikke klikbar -->
         <span class="btn-book-nav" style="opacity:.5;cursor:default;">Book tid</span>
       </div>
-      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Åbn menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </header>
 
-  <!-- ══ PROGRESS BAR ═════════════════════════════════ -->
+  <!-- Progress bar — app.js leder efter id="ps1"–"ps4", "pc1"–"pc4", "pl1"–"pl3" -->
   <nav class="progress-bar" aria-label="Booking-trin">
     <div class="prog-wrap">
-      <div class="prog-step prog-step--active" id="ps1">
-        <div class="prog-circle" id="pc1">1</div>
-        <span class="prog-label">Service</span>
-      </div>
+      <div class="prog-step prog-step--active" id="ps1"><div class="prog-circle" id="pc1">1</div><span class="prog-label">Service</span></div>
       <div class="prog-line" id="pl1"></div>
-      <div class="prog-step" id="ps2">
-        <div class="prog-circle" id="pc2">2</div>
-        <span class="prog-label">Dato & tid</span>
-      </div>
+      <div class="prog-step" id="ps2"><div class="prog-circle" id="pc2">2</div><span class="prog-label">Dato & tid</span></div>
       <div class="prog-line" id="pl2"></div>
-      <div class="prog-step" id="ps3">
-        <div class="prog-circle" id="pc3">3</div>
-        <span class="prog-label">Kontakt</span>
-      </div>
+      <div class="prog-step" id="ps3"><div class="prog-circle" id="pc3">3</div><span class="prog-label">Kontakt</span></div>
       <div class="prog-line" id="pl3"></div>
-      <div class="prog-step" id="ps4">
-        <div class="prog-circle" id="pc4">4</div>
-        <span class="prog-label">Bekræft</span>
-      </div>
+      <div class="prog-step" id="ps4"><div class="prog-circle" id="pc4">4</div><span class="prog-label">Bekræft</span></div>
     </div>
   </nav>
 
-  <!-- ══ BOOKING LAYOUT ═══════════════════════════════ -->
   <div class="booking-layout">
-
-    <!-- HOVED-INDHOLD -->
     <main>
 
-      <!-- ── TRIN 1: VÆLG SERVICE ───────────────── -->
-      <div class="bview bview--active" id="v1">
+      <!-- TRIN 1 — app.js leder efter id="serviceList" og class="view" -->
+      <div class="view view--active" id="v1">
         <div class="panel">
           <div class="panel__head">
-            <div class="panel__icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-            </div>
+            <div class="panel__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
             <h2 class="panel__title">Vælg behandling</h2>
           </div>
           <div class="panel__body">
@@ -86,33 +63,29 @@
         </div>
       </div>
 
-      <!-- ── TRIN 2: DATO & TID ─────────────────── -->
-      <div class="bview" id="v2">
+      <!-- TRIN 2 -->
+      <div class="view" id="v2">
         <div class="panel">
           <div class="panel__head">
-            <div class="panel__icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            </div>
+            <div class="panel__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
             <h2 class="panel__title">Vælg dato & tid</h2>
           </div>
           <div class="panel__body">
             <div class="cal-datetime">
-
-              <!-- Kalender -->
               <div>
                 <div class="cal__header">
                   <button class="cal__arrow" onclick="changeMonth(-1)" aria-label="Forrige måned">&#8249;</button>
+                  <!-- app.js leder efter id="calMonthLabel" -->
                   <span class="cal__month-label" id="calMonthLabel"></span>
                   <button class="cal__arrow" onclick="changeMonth(1)" aria-label="Næste måned">&#8250;</button>
                 </div>
+                <!-- app.js leder efter id="calGrid" -->
                 <div class="cal__grid" id="calGrid"></div>
               </div>
-
-              <!-- Tider -->
+              <!-- app.js leder efter id="timesSection" -->
               <div id="timesSection">
                 <div class="times__placeholder">← Vælg en dato<br>for at se ledige tider</div>
               </div>
-
             </div>
             <div class="btn-row">
               <button class="btn-ghost" onclick="goTo(1)">← Tilbage</button>
@@ -122,33 +95,19 @@
         </div>
       </div>
 
-      <!-- ── TRIN 3: KONTAKTOPLYSNINGER ───────────── -->
-      <div class="bview" id="v3">
+      <!-- TRIN 3 -->
+      <div class="view" id="v3">
         <div class="panel">
           <div class="panel__head">
-            <div class="panel__icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-            </div>
+            <div class="panel__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></div>
             <h2 class="panel__title">Kontaktoplysninger</h2>
           </div>
           <div class="panel__body">
             <div class="form-grid">
-              <div class="form-group">
-                <label class="form-label" for="fName">Navn *</label>
-                <input class="form-input" type="text" id="fName" placeholder="Dit fulde navn" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="fPhone">Telefon *</label>
-                <input class="form-input" type="tel" id="fPhone" placeholder="Fx 60 12 34 56" />
-              </div>
-              <div class="form-group form-group--full">
-                <label class="form-label" for="fEmail">E-mail *</label>
-                <input class="form-input" type="email" id="fEmail" placeholder="din@email.dk" />
-              </div>
-              <div class="form-group form-group--full">
-                <label class="form-label" for="fNote">Beskriv din udfordring (valgfri)</label>
-                <textarea class="form-input" id="fNote" placeholder="F.eks. smerter i nakken siden 2 uger…"></textarea>
-              </div>
+              <div class="form-group"><label class="form-label" for="fName">Navn *</label><input class="form-input" type="text" id="fName" placeholder="Dit fulde navn" /></div>
+              <div class="form-group"><label class="form-label" for="fPhone">Telefon *</label><input class="form-input" type="tel" id="fPhone" placeholder="Fx 60 12 34 56" /></div>
+              <div class="form-group form-group--full"><label class="form-label" for="fEmail">E-mail *</label><input class="form-input" type="email" id="fEmail" placeholder="din@email.dk" /></div>
+              <div class="form-group form-group--full"><label class="form-label" for="fNote">Beskriv din udfordring (valgfri)</label><textarea class="form-input" id="fNote" placeholder="F.eks. smerter i nakken siden 2 uger…"></textarea></div>
             </div>
             <div class="btn-row">
               <button class="btn-ghost" onclick="goTo(2)">← Tilbage</button>
@@ -158,22 +117,19 @@
         </div>
       </div>
 
-      <!-- ── TRIN 4: BEKRÆFT ───────────────────────── -->
-      <div class="bview" id="v4">
+      <!-- TRIN 4 — app.js leder efter id="confirmDetails" -->
+      <div class="view" id="v4">
         <div class="panel">
           <div class="panel__head">
-            <div class="panel__icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            </div>
+            <div class="panel__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
             <h2 class="panel__title">Bekræft din booking</h2>
           </div>
-          <!-- Bekræftelsesdetaljer indsættes af app.js -->
           <div class="panel__body" id="confirmDetails"></div>
         </div>
       </div>
 
-      <!-- ── TRIN 5: SUCCES ────────────────────────── -->
-      <div class="bview" id="v5">
+      <!-- TRIN 5: SUCCES — app.js leder efter id="confirmEmail" og id="successDetails" -->
+      <div class="view" id="v5">
         <div class="panel">
           <div class="success-wrap">
             <div class="success-ring">
@@ -193,13 +149,9 @@
 
     </main>
 
-    <!-- SIDEBJÆLKE -->
     <aside class="booking-sidebar">
-
-      <!-- Dynamisk booking-oversigt (fyldes af app.js) -->
+      <!-- Dynamisk booking-oversigt — app.js leder efter id="bookingSummary" -->
       <div id="bookingSummary"></div>
-
-      <!-- Åbningstider -->
       <div class="sidebar-card">
         <h3 class="sidebar-card__title">Åbningstider</h3>
         <div class="sh-row"><span>Mandag</span><strong>08:00–14:00</strong></div>
@@ -209,35 +161,21 @@
         <div class="sh-row"><span>Fredag</span><strong>07:15–15:00</strong></div>
         <div class="sh-row"><span>Weekend</span><strong>Se Facebook</strong></div>
       </div>
-
-      <!-- Adresse -->
       <div class="sidebar-card">
         <h3 class="sidebar-card__title">Adresse</h3>
-        <p class="sidebar-addr">
-          Langeskov Centret 1, butik 3<br>
-          5550 Langeskov<br><br>
-          <a href="tel:60866770">60 86 67 70</a><br>
-          <a href="mailto:nicolai@grocottfys.dk">nicolai@grocottfys.dk</a>
-        </p>
+        <p class="sidebar-addr">Langeskov Centret 1, butik 3<br>5550 Langeskov<br><br><a href="tel:60866770">60 86 67 70</a><br><a href="mailto:nicolai@grocottfys.dk">nicolai@grocottfys.dk</a></p>
       </div>
-
-      <!-- Note om forsikring -->
       <div class="sidebar-card sidebar-card--note">
         <h3 class="sidebar-card__title">Forsikring</h3>
         <p>Udenfor overenskomst – ingen lægehenvisning nødvendig. Samarbejder med de fleste sundhedsforsikringer og Sygeforsikring Danmark.</p>
       </div>
-
     </aside>
   </div>
 
-  <!-- ══ FOOTER ═══════════════════════════════════════ -->
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
-        <div>
-          <img src="img/logo_transparent.png" alt="Grocott Fysioterapi" class="footer__logo" />
-          <p class="footer__tagline">Fysioterapi med høj faglighed på Østfyn</p>
-        </div>
+        <div><img src="img/logo_transparent.png" alt="Grocott Fysioterapi" class="footer__logo" /><p class="footer__tagline">Fysioterapi med høj faglighed på Østfyn</p></div>
         <div>
           <div class="footer__col-title">Åbningstider</div>
           <div class="footer__hours-row"><span>Mandag</span><strong>08:00–14:00</strong></div>
@@ -255,21 +193,15 @@
           <a class="footer__link" href="mailto:nicolai@grocottfys.dk">nicolai@grocottfys.dk</a>
         </div>
       </div>
-      <div class="footer__bottom">
-        <span>© 2026 Grocott Fysioterapi · CVR: 40229299</span>
-        <a href="#" class="footer__bottom-link">Cookiepolitik</a>
-      </div>
+      <div class="footer__bottom"><span>© 2026 Grocott Fysioterapi · CVR: 40229299</span><a href="#" class="footer__bottom-link">Cookiepolitik</a></div>
     </div>
   </footer>
 
-<script src="js/app.js"></script>
-<script src="js/booking.js"></script>
-<script src="js/components.js"></script>
-<script src="js/contact.js"></script>
-<script src="js/navigation.js"></script>
-<script src="js/carusel.js"></script>
+  <!-- app.js: navigation, karrusel, modal, kontakt -->
+  <!-- booking.js: alt booking-logik -->
 
+  <script src="app.js"></script>
+  <script src="booking.js"></script>
 
 </body>
 </html>
-
