@@ -371,7 +371,7 @@ body {
 .cv-list li::before { content: ''; flex-shrink: 0; margin-top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--blue-mid); }
 
 .om-stats-strip { background: var(--blue-dark); padding: 40px 0; margin: 0; }
-.om-stats-grid { display: grid; grid-template-columns: repeat(3,1fr); text-align: center; gap: 0; }
+.om-stats-grid { display: grid; grid-template-columns: repeat(2,1fr); text-align: center; gap: 0; max-width: 500px; margin: 0 auto; }
 .om-stat { padding: 0 32px; border-right: 1px solid rgba(255,255,255,.15); }
 .om-stat:last-child { border-right: none; }
 .om-stat__num { font-family: 'DM Serif Display', serif; font-size: 44px; color: #fff; line-height: 1; }
