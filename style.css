@@ -945,3 +945,12 @@ a.contact-info-item__val:hover { color: var(--blue-dark); text-decoration: under
     order: 3;
   }
 }
+
+
+/* Footer adresse over Book tid knap */
+.footer__addr {
+  font-size: 13px;
+  color: rgba(255,255,255,.55);
+  line-height: 1.7;
+  margin-top: 10px;
+}
