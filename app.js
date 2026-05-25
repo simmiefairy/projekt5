@@ -214,9 +214,9 @@ function initCarousel() {
     });
   }
 
-  // Swipe-support til mobil (touch events)
+  // Swipe-support til mobil — virker på .carousel wrapperen (index + about)
   let touchStartX = 0;
-  const section = document.getElementById("reviewsCarousel");
+  const section = document.querySelector(".carousel") || document.getElementById("reviewsCarousel");
   if (section) {
     section.addEventListener("touchstart", function (e) {
       touchStartX = e.touches[0].clientX;

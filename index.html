@@ -19,6 +19,11 @@
         <a href="contact.html" class="nav__link">Kontakt</a>
         <!-- Book tid i mobilmenuen — skjult på desktop via CSS -->
         <a href="booking.html" class="btn-book-nav nav__book-mobile">Book tid</a>
+        <!-- Anmeld os vises kun i mobilmenuen -->
+        <a href="https://dk.trustpilot.com/review/grocottfys.dk" target="_blank" rel="noopener" class="btn-review nav__review-mobile">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Anmeld os
+        </a>
       </nav>
       <div class="nav__actions">
         <a href="https://dk.trustpilot.com/review/grocottfys.dk" target="_blank" rel="noopener" class="btn-review">
@@ -49,6 +54,13 @@
           <div class="badge__sep"></div>
           <div class="badge"><span class="badge__num">19</span><span class="badge__lbl">kurser</span></div>
         </div>
+      </div>
+
+      <!-- Højre side: foto med bobbel-effekt -->
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__bubble"></div>
+        <img src="img/DSC_5429.jpg" alt="Nicolai Grocott — fysioterapeut" class="hero__photo" />
+
       </div>
     </div>
   </section>
@@ -101,6 +113,35 @@
     </div>
   </div>
 
+
+
+  <section class="section section--alt" id="priser">
+    <div class="container">
+      <div class="section__head">
+        <div class="eyebrow">Priser</div>
+        <h2 class="section__title">Gennemsigtige priser</h2>
+        <p class="section__sub">Alle priser er inkl. moms. Ingen lægehenvisning nødvendig.</p>
+      </div>
+      <div class="prices-center">
+        <div class="prices-table">
+          <div class="prices-table__head">Behandlinger</div>
+          <div class="price-row"><span>15 min.</span><span class="price-row__val">225 kr.</span></div>
+          <div class="price-row"><span>30 min.</span><span class="price-row__val">400 kr.</span></div>
+          <div class="price-row"><span>45 min.</span><span class="price-row__val">500 kr.</span></div>
+          <div class="price-row"><span>60 min.</span><span class="price-row__val">650 kr.</span></div>
+          <div class="price-row"><span>90 min.</span><span class="price-row__val">850 kr.</span></div>
+          <div class="price-row"><span>120 min.</span><span class="price-row__val">1.100 kr.</span></div>
+          <div class="price-row price-row--accent"><span>Akuttillæg</span><span class="price-row__val">+300 kr.</span></div>
+          <div class="price-row"><span>Holdtræning pr. gang</span><span class="price-row__val">110 kr.</span></div>
+        </div>
+      </div>
+      <div class="insurance-strip">
+        <div class="insurance-strip__label">Samarbejder med</div>
+        <div class="insurance-strip__logos"><span>Sygesikring Danmark</span><span>Tryg</span><span>PFA</span><span>Falck Healthcare</span><span>Danica Pension</span><span>Alm. Brand</span><span>Nordic Netcare</span><span>AP Pension</span></div>
+      </div>
+      <div class="section__cta"><a href="booking.html" class="btn-primary">Book din tid nu</a></div>
+    </div>
+  </section>
 
   <!-- Karrusel — app.js leder efter id="carouselTrack" og id="reviewsCarousel" -->
   <section class="section" id="reviewsCarousel">

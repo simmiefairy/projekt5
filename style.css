@@ -188,10 +188,36 @@ body {
 .badge__sep { width: 1px; height: 36px; background: var(--border); }
 
 .hero__visual {
-  flex: 0 0 340px; position: relative; height: 380px;
+  flex: 0 0 340px; position: relative; height: 420px;
   display: flex; align-items: center; justify-content: center;
 }
-.hero__shape { width: 260px; height: 320px; background: var(--blue-light); border-radius: 55% 45% 50% 50% / 50% 50% 55% 45%; opacity: .45; }
+
+/* Organisk gennemsigtig bobbel bag billedet */
+.hero__bubble {
+  position: absolute;
+  width: 300px; height: 360px;
+  background: linear-gradient(135deg, var(--blue-light) 0%, rgba(58,181,217,.25) 100%);
+  border-radius: 55% 45% 48% 52% / 50% 52% 48% 50%;
+  animation: morphBubble 8s ease-in-out infinite;
+  z-index: 0;
+}
+@keyframes morphBubble {
+  0%,100% { border-radius: 55% 45% 48% 52% / 50% 52% 48% 50%; }
+  33%     { border-radius: 48% 52% 55% 45% / 52% 48% 52% 48%; }
+  66%     { border-radius: 52% 48% 45% 55% / 48% 52% 48% 52%; }
+}
+
+/* Foto oven på bobbelen */
+.hero__photo {
+  position: relative; z-index: 1;
+  width: 270px; height: 360px;
+  object-fit: cover; object-position: center top;
+  border-radius: 50% 50% 46% 54% / 50% 50% 46% 54%;
+  box-shadow: 0 16px 48px rgba(27,111,168,.18);
+  filter: drop-shadow(0 8px 24px rgba(27,111,168,.15));
+}
+
+.hero__shape { display: none; } /* Ikke længere i brug */
 
 .hero__float-card {
   position: absolute; top: 44px; right: 0;
@@ -276,6 +302,9 @@ body {
    ══════════════════════════════════════════════════════ */
 
 .prices-wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: 32px; align-items: start; }
+/* Centreret pristabel uden klippekort */
+.prices-center { display: flex; justify-content: center; }
+.prices-center .prices-table { max-width: 480px; width: 100%; }
 
 .prices-table { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
 .prices-table__head { background: var(--blue-dark); color: #fff; font-size: 13px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; padding: 12px 18px; }
@@ -456,18 +485,18 @@ textarea.form-input { resize: vertical; min-height: 100px; }
 
 /* Time slots */
 .times__label { font-size: 13px; font-weight: 500; color: var(--text-mid); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
-.times__date-str { color: var(--blue-dark); }
+.times__date-str, .times__date { color: var(--blue-dark); }
 .times__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; }
 .times__placeholder { font-size: 13px; color: var(--text-soft); text-align: center; padding: 28px 0; line-height: 1.9; }
-.time-btn { border: 1px solid var(--border); border-radius: 8px; padding: 9px 4px; text-align: center; font-size: 13px; font-family: 'DM Sans', sans-serif; cursor: pointer; background: var(--white); color: var(--text); transition: all .15s; }
-.time-btn:hover { border-color: var(--blue-mid); background: var(--blue-xlight); color: var(--blue-dark); }
-.time-btn--selected { background: var(--blue); border-color: var(--blue); color: #fff; font-weight: 500; }
+.time-btn, .time { border: 1px solid var(--border); border-radius: 8px; padding: 9px 4px; text-align: center; font-size: 13px; font-family: 'DM Sans', sans-serif; cursor: pointer; background: var(--white); color: var(--text); transition: all .15s; }
+.time-btn:hover, .time:hover { border-color: var(--blue-mid); background: var(--blue-xlight); color: var(--blue-dark); }
+.time-btn--selected, .time--selected { background: var(--blue); border-color: var(--blue); color: #fff; font-weight: 500; }
 
 /* Confirm */
 .confirm-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 11px 0; border-bottom: 1px solid var(--border); font-size: 14px; gap: 16px; }
 .confirm-row:last-of-type { border-bottom: none; }
-.confirm-key { color: var(--text-soft); }
-.confirm-val { font-weight: 500; text-align: right; }
+.confirm-key, .confirm-row__k { color: var(--text-soft); }
+.confirm-val, .confirm-row__v { font-weight: 500; text-align: right; }
 .confirm-total { display: flex; justify-content: space-between; padding: 16px 0 0; font-size: 16px; font-weight: 500; border-top: 1px solid var(--border); margin-top: 4px; }
 .confirm-total span:last-child { color: var(--blue-dark); }
 
@@ -811,7 +840,7 @@ a.contact-info-item__val:hover { color: var(--blue-dark); text-decoration: under
 
 /* ── MOBILMENU ────────────────────────────────────────────── */
 /* Book tid i mobilmenuen — skjult på desktop */
-.nav__book-mobile { display: none; }
+.nav__book-mobile, .nav__review-mobile { display: none; }
 
 /* Hamburger X-animation */
 .hamburger span { transition: transform .2s, opacity .2s; }
@@ -821,7 +850,8 @@ a.contact-info-item__val:hover { color: var(--blue-dark); text-decoration: under
 
 @media (max-width: 640px) {
   /* Vis Book tid i hamburger-menuen */
-  .nav__book-mobile { display: inline-flex; width: 100%; justify-content: center; margin-top: 4px; }
+  .nav__book-mobile   { display: inline-flex; width: 100%; justify-content: center; margin-top: 4px; }
+  .nav__review-mobile { display: inline-flex; width: 100%; justify-content: center; margin-top: 4px; }
 
   /* Karrusel: ét kort ad gangen */
   .reviews-grid { grid-template-columns: 1fr !important; }
@@ -834,4 +864,84 @@ a.contact-info-item__val:hover { color: var(--blue-dark); text-decoration: under
 
   /* Karrusel-pile: skjul på mobil, brug swipe */
   .carousel__btn { display: none; }
+}
+
+
+/* ══ BOOKING: manglende klasser (genereres af booking.js) ══════════════════ */
+
+/* Service-kort indhold */
+.service__check {
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 1.5px solid var(--border);
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+  background: var(--white);
+}
+.service--selected .service__check { background: var(--blue); border-color: var(--blue); }
+
+.service__info  { flex: 1; min-width: 0; }
+.service__name  { font-weight: 500; font-size: 14px; color: var(--text); }
+.service__desc  { font-size: 12px; color: var(--text-soft); margin-top: 2px; }
+
+.service__meta  { text-align: right; flex-shrink: 0; }
+.service__price { font-weight: 500; font-size: 14px; color: var(--text); }
+.service__dur   {
+  font-size: 11px; color: var(--text-soft);
+  background: var(--sand); padding: 2px 8px;
+  border-radius: 20px; display: inline-block; margin-top: 3px;
+}
+
+/* Booking-sidebar oversigt */
+.bsum {
+  background: var(--blue-xlight);
+  border: 1px solid rgba(27,111,168,.18);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+}
+.bsum__title {
+  font-size: 10px; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--blue);
+  margin-bottom: 10px;
+}
+.bsum__row {
+  display: flex; justify-content: space-between;
+  font-size: 12.5px; padding: 4px 0;
+  border-bottom: 1px solid rgba(27,111,168,.1);
+  color: var(--text-mid);
+}
+.bsum__row:last-child { border-bottom: none; }
+.bsum__row strong    { color: var(--blue-dark); font-weight: 500; }
+
+
+/* ══ OM MIG: profil-billede ════════════════════════════════ */
+.profile-img-frame {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 3/4;
+  background: var(--blue-xlight);
+}
+.profile-img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  display: block;
+}
+
+/* ══ MOBIL: karrusel swipe-hint ════════════════════════════ */
+@media (max-width: 640px) {
+  /* Vis kun midterkortet (featured) på mobil */
+  .carousel__track .review:not(.review--featured) { display: none; }
+  /* Lille hint om at man kan swipe */
+  .carousel::after {
+    content: 'Swipe for flere →';
+    display: block;
+    font-size: 11px;
+    color: var(--text-soft);
+    text-align: center;
+    margin-top: 10px;
+    width: 100%;
+    order: 3;
+  }
 }
