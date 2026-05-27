@@ -1,7 +1,6 @@
 /**
  * app.js — Grocott Fysioterapi
- * Beskrivelse: Navigation, karrusel, behandlings-modal og kontaktformular.
- *              Booking-logik er i booking.js
+ * Kilde/Reference: Koden til vores redesign, er udviklet med hjælp og vejledning fra AI (Claude.ai)
  *
  * Kilder / Referencer:
  * - MDN addEventListener  https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
@@ -21,9 +20,7 @@
  */
 
 
-/* ============================================================
-   1. DATA
-   ============================================================ */
+/* 1. DATA */
 
 // Anmeldelser til karrusel — array af objects
 const reviews = [
@@ -73,9 +70,7 @@ const treatments = [
 let carouselActive = 1;
 
 
-/* ============================================================
-   2. NAVIGATION — scroll-effekt og hamburger-menu
-   ============================================================ */
+/* 2. NAVIGATION — scroll-effekt og hamburger-menu */
 
 /**
  * Tilføjer nav--scrolled klasse til nav når siden scrolles ned.

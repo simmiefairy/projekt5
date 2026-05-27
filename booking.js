@@ -1,7 +1,5 @@
 /**
- * booking.js — Grocott Fysioterapi
- * Beskrivelse: Alt logik for bookingflowet på booking.html
- *
+Koden til vores redesign, er udviklet med hjælp og vejledning fra AI (Claude.ai) 
  * Kilder / Referencer:
  * - MDN addEventListener  https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
  * - MDN innerHTML         https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
@@ -22,15 +20,15 @@
    1. DATA
    ============================================================ */
 
-// Services — array af objects med id, name, desc, dur og price
+// Services — array af objects med id, name, description, duration og price
 const services = [
-  { id: "s1", name: "Konsultation 15 min.",  desc: "Kortere opfølgning eller enkelt spørgsmål",      dur: "15 min.",  price: "225 kr."    },
-  { id: "s2", name: "Konsultation 30 min.",  desc: "Fokuseret behandling af et specifikt problem",   dur: "30 min.",  price: "400 kr."    },
-  { id: "s3", name: "Konsultation 45 min.",  desc: "Tilpasset behandling af specifikke gener",       dur: "45 min.",  price: "500 kr."    },
-  { id: "s4", name: "Konsultation 60 min.",  desc: "Fuld undersøgelse og behandling",                dur: "60 min.",  price: "650 kr."    },
-  { id: "s5", name: "Konsultation 90 min.",  desc: "Grundig første konsultation inkl. anamnese",     dur: "90 min.",  price: "850 kr."    },
-  { id: "s6", name: "Konsultation 120 min.", desc: "Udvidet forløb til komplekse problemstillinger", dur: "120 min.", price: "1.100 kr."  },
-  { id: "s7", name: "Akuttid",               desc: "Pludselig opståede smerter — tillæg +300 kr.",   dur: "Variabel", price: "Fra 700 kr." },
+  { id: "s1", name: "Konsultation 15 min.",  description: "Kortere opfølgning eller enkelt spørgsmål",      duration: "15 min.",  price: "225 kr."    },
+  { id: "s2", name: "Konsultation 30 min.",  description: "Fokuseret behandling af et specifikt problem",   duration: "30 min.",  price: "400 kr."    },
+  { id: "s3", name: "Konsultation 45 min.",  description: "Tilpasset behandling af specifikke gener",       duration: "45 min.",  price: "500 kr."    },
+  { id: "s4", name: "Konsultation 60 min.",  description: "Fuld undersøgelse og behandling",                duration: "60 min.",  price: "650 kr."    },
+  { id: "s5", name: "Konsultation 90 min.",  description: "Grundig første konsultation inkl. anamnese",     duration: "90 min.",  price: "850 kr."    },
+  { id: "s6", name: "Konsultation 120 min.", description: "Udvidet forløb til komplekse problemstillinger", duration: "120 min.", price: "1.100 kr."  },
+  { id: "s7", name: "Akuttid",               description: "Pludselig opståede smerter — tillæg +300 kr.",   duration: "Variabel", price: "Fra 700 kr." },
 ];
 
 // Ledige dage i maj 2026 — array af tal (dagnumre)
@@ -70,11 +68,9 @@ const monthNamesShort = [
 const weekDayNames = ["Ma", "Ti", "On", "To", "Fr", "Lø", "Sø"];
 
 
-/* ============================================================
-   2. STATE
+/* 2. STATE
    State = hvad brugeren har valgt.
-   Regel: UI opdateres kun ved at ændre state og kalde render.
-   ============================================================ */
+   Regel: UI opdateres kun ved at ændre state og kalde render. */
 
 const state = {
   currentStep:     1,     // Aktivt trin (1–5)
@@ -91,9 +87,7 @@ const state = {
 };
 
 
-/* ============================================================
-   3. RENDER — bygger UI fra state
-   ============================================================ */
+/* 3. RENDER — bygger UI fra state */
 
 /**
  * Viser det aktive trin og skjuler de andre.
@@ -277,9 +271,7 @@ function renderTimes() {
   });
 }
 
-/**
- * Renderer bekræftelsesoversigten i trin 4.
- */
+/** Renderer bekræftelsesoversigten i trin 4. */
 function renderConfirm() {
   const container = document.getElementById("confirmDetails");
   if (!container) return;
@@ -308,9 +300,7 @@ function renderConfirm() {
     "</div>";
 }
 
-/**
- * Opdaterer booking-opsummeringen i sidebjælken.
- */
+/** Opdaterer booking-opsummeringen i sidebjælken. */
 function updateSidebar() {
   const container = document.getElementById("bookingSummary");
   if (!container) return;
@@ -333,15 +323,11 @@ function updateSidebar() {
 }
 
 
-/* ============================================================
-   4. EVENTS — klik og input-handlers
-   ============================================================ */
+/* 4. EVENTS — klik og input-handlers */
 
-/**
- * Går til et bestemt trin.
+/** Går til et bestemt trin.
  * Validerer at betingelserne er opfyldt inden trinnet skiftes.
- * Eksponeres til window så onclick="goTo(2)" i HTML virker.
- */
+ * Eksponeres til window så onclick="goTo(2)" i HTML virker. */
 function goTo(stepNumber) {
   if (stepNumber === 2 && !state.selectedService) return;
   if (stepNumber === 3 && (!state.selectedDate || !state.selectedTime)) return;
@@ -362,10 +348,8 @@ function goTo(stepNumber) {
   window.scrollTo(0, 0);
 }
 
-/**
- * Skifter måneden i kalendervisningen.
- * Eksponeres til window da den kaldes fra onclick i HTML.
- */
+/** Skifter måneden i kalendervisningen.
+ * Eksponeres til window da den kaldes fra onclick i HTML. */
 function changeMonth(direction) {
   state.calMonth += direction;
   if (state.calMonth > 11) { state.calMonth = 0; state.calYear++; }
@@ -373,9 +357,7 @@ function changeMonth(direction) {
   renderCalendar();
 }
 
-/**
- * Gemmer valgt dato i state og viser ledige tider.
- */
+/** Gemmer valgt dato i state og viser ledige tider. */
 function selectDate(day) {
   state.selectedDate    = day;
   state.selectedTime    = null;
@@ -386,10 +368,8 @@ function selectDate(day) {
   updateSidebar();
 }
 
-/**
- * Validerer kontaktformularen i realtid.
- * Aktiverer "fortsæt"-knappen når alle tre felter er udfyldt.
- */
+/** Validerer kontaktformularen i realtid.
+ * Aktiverer "fortsæt"-knappen når alle tre felter er udfyldt. */
 function checkContact() {
   const name  = document.getElementById("fName").value.trim();
   const phone = document.getElementById("fPhone").value.trim();
@@ -398,10 +378,8 @@ function checkContact() {
   if (btn) btn.disabled = !(name && phone && email);
 }
 
-/**
- * Viser trin 5 (success) og udfylder bekræftelseskortet.
- * Eksponeres til window da den kaldes fra onclick i HTML.
- */
+/** Viser trin 5 (success) og udfylder bekræftelseskortet.
+ * Eksponeres til window da den kaldes fra onclick i HTML. */
 function submitBooking() {
   const service  = services.find(function (s) { return s.id === state.selectedService; });
   const emailEl  = document.getElementById("confirmEmail");
@@ -421,18 +399,14 @@ function submitBooking() {
   updateStepVisibility();
 }
 
-/**
- * Genindlæser siden — nulstiller hele bookingflowet.
- * Eksponeres til window da den kaldes fra onclick i HTML.
- */
+/** Genindlæser siden — nulstiller hele bookingflowet.
+ * Eksponeres til window da den kaldes fra onclick i HTML. */
 function restart() {
   window.location.reload();
 }
 
 
-/* ============================================================
-   5. INIT — starter booking når DOM er klar
-   ============================================================ */
+/* 5. INIT — starter booking når DOM er klar */
 
 document.addEventListener("DOMContentLoaded", function () {
   // Kun aktiv på booking.html — stop hvis serviceList ikke findes
