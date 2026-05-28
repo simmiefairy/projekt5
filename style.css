@@ -913,3 +913,24 @@ a.contact-info-item__val:hover { color: var(--blue-dark); text-decoration: under
   line-height: 1.7;
   margin-top: 10px;
 }
+.footer__social {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+.footer__social-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid rgba(221,221,223,.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dddddf;
+  text-decoration: none;
+  transition: border-color .15s, color .15s;
+}
+.footer__social-icon:hover {
+  border-color: #dddddf;
+  color: #fff;
+}

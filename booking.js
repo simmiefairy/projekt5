@@ -16,9 +16,7 @@ Koden til vores redesign, er udviklet med hjælp og vejledning fra AI (Claude.ai
  */
 
 
-/* ============================================================
-   1. DATA
-   ============================================================ */
+/* 1. DATA */
 
 // Services — array af objects med id, name, description, duration og price
 const services = [
