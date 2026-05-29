@@ -144,11 +144,11 @@ function renderServices() {
       "</div>" +
       '<div class="service__info">' +
         '<div class="service__name">' + service.name + "</div>" +
-        '<div class="service__desc">' + service.desc + "</div>" +
+        '<div class="service__desc">' + service.description + "</div>" +
       "</div>" +
       '<div class="service__meta">' +
         '<div class="service__price">' + service.price + "</div>" +
-        '<div class="service__dur">'   + service.dur   + "</div>" +
+        '<div class="service__dur">'   + service.duration   + "</div>" +
       "</div>";
 
     // Klik → gem valg i state og re-render
@@ -284,7 +284,7 @@ function renderConfirm() {
 
   container.innerHTML =
     row("Behandling", service.name) +
-    row("Varighed",   service.dur) +
+    row("Varighed",   service.duration) +
     row("Dato",       state.selectedDateStr) +
     row("Klokkeslæt", state.selectedTime) +
     row("Navn",       state.contactName) +
